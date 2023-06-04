@@ -1,6 +1,6 @@
 # 前端学习路线
 ## 0.互联网
-- [互联网是如何工作的](./docs/how_does_the_internet_work.md)
+- [互联网是如何工作的](./docs/how_does_the_internet_work)
 - HTTP
 - DNS
 - CDN
