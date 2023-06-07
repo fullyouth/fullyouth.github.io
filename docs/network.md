@@ -12,6 +12,9 @@
 
 ## 2.HTTPS
 
+- https://www.51cto.com/article/650058.html
+- https://developer.aliyun.com/article/923832
+
 ## 3.TCP
 
 ## 4.DNS
