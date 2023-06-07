@@ -1,11 +1,11 @@
 # 前端学习路线
 ## 0.互联网
-- [互联网是如何工作的](./docs/how_does_the_internet_work)
-- HTTP
-- DNS
-- CDN
-- 域名
-- 网站托管
+- [互联网是如何工作的](./how_does_the_internet_work)
+- [HTTP](./network)
+- [DNS](./network)
+- [CDN](./network)
+- [域名](./network)
+- [网站托管](./network)
 - 浏览器及其运行原理
 
 ## 1.HTML
