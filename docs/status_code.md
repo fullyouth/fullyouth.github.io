@@ -1,5 +1,8 @@
 # 状态码
-[TOC]
+
+## 你能学到什么
+- 状态码的含义
+- 重定向3xx状态码与缓存的关系
 
 ## 是什么
 
@@ -109,4 +112,42 @@ Authorization请求头认证失败
 ### 502 Bad Gateway
 
 作为网关或者代理工作的服务器尝试执行请求时，从上游服务器接收到无效的响应
+
+## 重定向与缓存
+缓存是指代理服务器 或 客户端 本地磁盘内保存的资源副本。   
+缓存的好处：减少对资源服务器的访问，可节省流量费用 和 通信时间。  
+
+缓存服务器是代理服务器的一种，当代理转发从服务器返回的响应时，代理服务器会保存一份资源的副本。  
+好处：利用缓存可避免多次从源服务器转发资源。可实现就近从缓存服务器上获取资源（cdn的实现原理类似）  
+
+chrome://net-internals/?#dns
+
+客户端的缓存  
+浏览器分为：强制缓存 和 协商缓存
+
+不同的场景有缓存的最佳实践
+- html 适合采用协商缓存
+- 静态资源 适合采用强制缓存
+```md
+协商缓存 与 强制缓存介绍
+强制缓存 (200)
+控制方式：cache Control：max-age 或者 s-max-age
+命中缓存 会使用memory cache 或者 disk cache
+
+协商缓存 (304)
+控制方式：cache Control：no cache 或者 max-age=0 或者强制缓存过期，如果有以下参数，会使用协商缓存
+since（时间）：If-Modified-Since	与 Last-Modified
+etag：If-Match	If-None-Match
+
+不走缓存 cache Control：no store
+
+Pragma  Expires. 都基本不再使用了，忽略。
+cache Control：privite public，表示是否可以被代理服务器缓存
+```
+
+## 参考文章
+[wiki](https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81)  
+[cache Tutorial](https://www.mnot.net/cache_docs/)  
+[http cache](https://github.com/lilins/Blog/issues/4)   
+
 
