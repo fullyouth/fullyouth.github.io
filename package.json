@@ -1,11 +1,11 @@
 {
-  "name": "billy-chin",
+  "name": "haoqi-zhang",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "authors": {
-    "name": "Billyyyyy3320",
-    "email": "newsbielt703@gmail.com"
+    "name": "haoqizhang",
+    "email": "fullyouth@163.com"
   },
   "scripts": {
     "dev": "vuepress dev blog --open --no-clear-screen",

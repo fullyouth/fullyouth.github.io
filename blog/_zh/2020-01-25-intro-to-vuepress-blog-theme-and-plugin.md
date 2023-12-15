@@ -1,16 +1,13 @@
 ---
-title: 介紹 VuePress 官方部落格主題與套件
-date: 2020-01-25
+title: 前端网站集结
+date: 2023-12-15
 tags:
-  - Vue
-  - VuePress
-  - JavaScript
-summary: 使用VuePress建立部落格。有了靜態網站生成器，建立自己的部落格其實很簡單，如果你會寫Vue，VuePress是個很好的選擇，即便你沒用過Vue，你也可以直接套用開箱及用的主題。
+  - 前端
+summary: 多年前端开发生涯中收集的优秀网站,供查看学习使用.
 comment:
   title: Intro to VuePress blog theme and plugin
 ---
 
-繁體中文 | [English](/en/2020/01/25/intro-to-vuepress-blog-theme-and-plugin/)
 
 ## 前言
 
