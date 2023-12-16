@@ -4,9 +4,7 @@ title: About
 
 <h1 class="beginning"> Hi, I'm haoqi</h1>
 
-I was born in 1996. work for [CTrip](https://www.ctrip.com/), as a software development engineer.
-
-
+I was born in 1996. work for [CTrip](https://www.ctrip.com/), as a Software Development Engineer.
 
 <GetStarted/>
 
