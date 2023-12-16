@@ -9,7 +9,8 @@
   },
   "scripts": {
     "dev": "vuepress dev blog --open --no-clear-screen",
-    "build": "vuepress build blog"
+    "build": "vuepress build blog",
+    "deploy": "sh ./deploy.sh"
   },
   "license": "MIT",
   "devDependencies": {
