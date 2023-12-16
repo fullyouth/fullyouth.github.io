@@ -1,36 +1,30 @@
 const path = require("path");
 module.exports = (options, context, api) => {
   return {
-    title: "zhang haoqi",
+    title: "haoqi",
     description: "Web development, Frontend, JavaScript",
     theme: "@vuepress/blog",
     plugins: [
-      [
-        "@vuepress/google-analytics",
-        {
-          ga: process.env.GA
-        }
-      ]
+      // [
+      //   "@vuepress/google-analytics",
+      //   {
+      //     ga: process.env.GA
+      //   }
+      // ]
     ],
     themeConfig: {
       directories: [
         {
           id: "zh",
           dirname: "_zh",
-          title: "貼文",
+          title: "haoqi",
           path: "/zh/",
           itemPermalink: "/zh/:year/:month/:day/:slug"
         },
-        {
-          id: "en",
-          dirname: "_en",
-          title: "Post",
-          path: "/en/",
-          itemPermalink: "/en/:year/:month/:day/:slug"
-        }
       ],
+      dateFormat: 'YYYY-MM-DD-周d',
       sitemap: {
-        hostname: "https://billyyyyy3320.com/"
+        hostname: "https://github.com/fullyouth"
       },
       // comment: {
       //   service: "vssue",
@@ -60,23 +54,23 @@ module.exports = (options, context, api) => {
         // },
         {
           text: "Github",
-          link: "https://github.com/billyyyyy3320"
+          link: "https://github.com/fullyouth"
         }
       ],
       footer: {
         contact: [
           {
             type: "github",
-            link: "https://github.com/billyyyyy3320"
+            link: "https://github.com/fullyouth"
           },
-          {
-            type: "mail",
-            link: "mailto:newsbielt703@gmail.com"
-          }
+          // {
+          //   type: "mail",
+          //   link: "fullyouth@163.com"
+          // }
         ],
         copyright: [
           {
-            text: "Billy Chin © 2019",
+            text: "",
             link: ""
           }
         ]
