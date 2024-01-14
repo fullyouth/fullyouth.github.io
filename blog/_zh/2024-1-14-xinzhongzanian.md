@@ -20,5 +20,5 @@ summary: 怎么去除心中杂念
 这1个小时，我是快乐的！或许以后可以多尝试一下这个方法。修身养性一下。让自己慢下来，不要一直思考技术，工作，未来，生活。
 人同样也需要时间来放空自己的身体和心灵！
 
-![image](../assets/20240114/WechatIMG1977.jpg)
-![image](../assets/20240114/WechatIMG1978.jpg)
+![image](../assets/20240114/WechatIMG1977-min.jpg)
+![image](../assets/20240114/WechatIMG1978-min.jpg)
