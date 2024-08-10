@@ -22,7 +22,7 @@ module.exports = (options, context, api) => {
           itemPermalink: "/zh/:year/:month/:day/:slug"
         },
       ],
-      dateFormat: 'YYYY-MM-DD-周d',
+      dateFormat: `YYYY-MM-DD 周d`,
       sitemap: {
         hostname: "https://github.com/fullyouth"
       },
