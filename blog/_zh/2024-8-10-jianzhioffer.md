@@ -289,6 +289,44 @@ var maxProfit = function(prices) {
 };
 ```
 
+### [7.无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/)
+频率：6  
+
+问题：   
+给定一个字符串 s ，请你找出其中不含有重复字符的 最长 子串的长度。
+
+题解：  
+滑动窗口  
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function (s) {
+    if (s.length === 0) return 0
+    if (s.length === 1) return 1
+
+    let start = 0;
+    let end = 0;
+    let result = 0
+    let map = {}
+    while (end < s.length) {
+        let cur = s[end]
+        if (map[cur]) {
+            // 存在重复
+            map[s[start]] = 0
+            start ++
+            result = Math.max(result, end - start)
+        } else {
+            map[cur] = 1
+            result = Math.max(result, end - start + 1)
+            end++
+        }
+    }
+    return result
+};
+```
 
 
 ## 题库
