@@ -253,6 +253,44 @@ LRUCache.prototype.put = function (key, value) {
  * obj.put(key,value)
  */
 ```
+
+### [6.买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+频率：7  
+
+问题：   
+给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
+
+你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
+
+返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
+
+![image](../assets/20240810/maimaifupiaozuijiashiji.jpg)
+
+题解：  
+从左向右遍历  
+增加一个变量存储最低点  
+```js
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    let min = Infinity
+    let result = 0
+    for (let i = 0 ; i < prices.length; i ++) {
+        let cur = prices[i];
+        if (cur < min) {
+            min = cur
+        }
+        result = Math.max(result, cur - min)
+    
+    }
+    return result
+};
+```
+
+
+
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
 [github题库2](https://github.com/afatcoder/LeetcodeTop/blob/master/bytedance/frontend.md)  
