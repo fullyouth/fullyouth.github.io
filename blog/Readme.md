@@ -1,5 +1,5 @@
 ---
-title: About
+title: Haoqi
 ---
 
 <h1 class="beginning"> Hi, I'm haoqi</h1>

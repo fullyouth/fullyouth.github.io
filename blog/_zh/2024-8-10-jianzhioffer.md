@@ -6,8 +6,6 @@ tags:
 summary: 算法学习笔记
 ---
 
-[传送门](https://github.com/afatcoder/LeetcodeTop?tab=readme-ov-file)
-
 ## 写在前面
 这是自己学习算法题的练习小册子
 [练习网站](https://codetop.cc/home)
@@ -295,8 +293,14 @@ var maxProfit = function(prices) {
 问题：   
 给定一个字符串 s ，请你找出其中不含有重复字符的 最长 子串的长度。
 
+![image](../assets/20240810/wuchongfuzifuchuanzuichangzichuan.jpg)
+
 题解：  
 滑动窗口  
+两端分别为start，end  
+如果end在Map中存在，表示有重复，start就++，删掉start在Map中的记录  
+如果end在Map中不存在，表示无重复，end就++，增加end在Map中的记录  
+每次比较记录start与end之间的间距
 
 ```js
 /**
@@ -325,6 +329,37 @@ var lengthOfLongestSubstring = function (s) {
         }
     }
     return result
+};
+```
+
+### [8.两数之和](https://leetcode.cn/problems/two-sum/description/)
+频率：6  
+
+问题：   
+给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+
+
+题解：  
+
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    let map = {}
+    for (let i = 0 ; i < nums.length; i ++) {
+        map[nums[i]] = i
+    }
+    for (let i = 0 ; i < nums.length; i ++) {
+        let cur = nums[i]
+        if (typeof map[target - cur] !== 'undefined'&& i !== map[target - cur]) {
+            return [i, map[target - cur]]
+        }
+    }
+    return []
 };
 ```
 
