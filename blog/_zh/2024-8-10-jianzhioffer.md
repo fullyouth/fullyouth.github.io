@@ -98,6 +98,52 @@ var maxSubArray = function(nums) {
 };
 ```
 
+### [3.字符串相加](https://leetcode.cn/problems/add-strings/)
+频率：16  
+
+问题：   
+给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和并同样以字符串形式返回。
+
+![image](../assets/20240810/liangshuzhihe.jpg)
+题解：  
+跟我们手工列竖式计算两数和的逻辑一样，只是需要有几个需要注意的点：  
+1、需要倒着按位进行计算  
+2、进位的考虑  
+3、最大位的进位要考虑
+
+```js
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var addStrings = function (num1, num2) {
+    let str1 = num1.toString();
+    let str2 = num2.toString();
+    let length = Math.max(str1.length, str2.length)
+    let result = ''
+    let next = 0; // 进位数
+    for (let i = 0; i < length; i++) {
+        // 倒序
+        let n1 = +str1[str1.length - 1 -i] || 0
+        let n2 = +str2[str2.length - 1 -i] || 0
+        let cur = n1 + n2 + next
+        result = (cur % 10) + '' + result
+        // 进位逻辑
+        if (cur > 9) {
+            next = 1
+        } else {
+            next = 0
+        }
+    }
+    // 最大位的进位
+    if (next > 0) {
+        result = next + result
+    }
+    return result
+};
+```
+
 
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
