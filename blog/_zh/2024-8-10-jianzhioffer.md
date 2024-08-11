@@ -144,7 +144,115 @@ var addStrings = function (num1, num2) {
 };
 ```
 
+### [4.比较版本号](https://leetcode.cn/problems/compare-version-numbers/)
+频率：9  
 
+问题：   
+给你两个 版本号字符串 version1 和 version2 ，请你比较它们。版本号由被点 '.' 分开的修订号组成。修订号的值 是它 转换为整数 并忽略前导零。
+
+比较版本号时，请按 从左到右的顺序 依次比较它们的修订号。如果其中一个版本字符串的修订号较少，则将缺失的修订号视为 0。
+
+返回规则如下：  
+如果 version1 < version2 返回 -1，  
+如果 version1 > version2 返回 1，  
+除此之外返回 0。
+
+题解：  
+注意 位数不足时 默认补齐为0，否则大小判断会有问题
+```js
+/**
+ * @param {string} version1
+ * @param {string} version2
+ * @return {number}
+ */
+var compareVersion = function (version1, version2) {
+    let arr1 = version1.split('.')
+    let arr2 = version2.split('.')
+    let len = Math.max(arr1.length, arr2.length);
+    for (let i = 0; i < len; i++) {
+        let n1 = +arr1[i] || 0
+        let n2 = +arr2[i] || 0
+        if (n1 > n2) {
+            return 1
+        }
+        if (n1 < n2) {
+            return -1
+        }
+    }
+    return 0
+};
+```
+
+
+### [5.LRU 缓存](https://leetcode.cn/problems/lru-cache/)
+频率：7  
+
+问题：   
+请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。  
+实现 LRUCache 类：  
+LRUCache( capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存
+get( key) 如果关键字 key 存在于缓存中，则返回关键字的值，否则返回 -1 。
+put( key, value) 如果关键字 key 已经存在，则变更其数据值 value ；如果不存在，则向缓存中插入该组 key-value 。如果插入操作导致关键字数量超过 capacity ，则应该 逐出 最久未使用的关键字。  
+函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
+
+题解：  
+要保证O(1)的set 和 put 时间复杂度，就需要利用map + 链表  
+链表可以快速修改优先级，map可以快速取值
+
+TIPS：  
+Javascript中的Map数据结构，可以满足map + 链表   
+map.get 取值  
+map.set 按顺序存放值  
+map.keys() 按顺序去除所有的key，返回的是一个迭代器
+```js
+// 必须使用链表 + hash map,才能保证平均时间复杂度是O(1)
+// js的Map刚好满足
+/**
+ * @param {number} capacity 容量
+ */
+var LRUCache = function (capacity) {
+    this.capacity = capacity
+    this.cache = new Map()
+};
+
+/** 
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function (key) {
+    if (this.cache.has(key)) {
+        let v = this.cache.get(key)
+        this.cache.delete(key)
+        this.cache.set(key, v)
+        return v;
+    } else {
+        return -1
+    }
+};
+
+/** 
+ * @param {number} key 
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function (key, value) {
+    this.cache.delete(key)
+    this.cache.set(key, value)
+    let len = this.cache.size
+    if (len > this.capacity) {
+        let firstKey = this.cache.keys().next().value
+        this.cache.delete(firstKey)
+    }
+
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
+```
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
 [github题库2](https://github.com/afatcoder/LeetcodeTop/blob/master/bytedance/frontend.md)  
