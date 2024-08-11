@@ -15,6 +15,7 @@ summary: 算法学习笔记
 
 ## 试题
 ### [1.反转链表](https://leetcode.cn/problems/reverse-linked-list/)
+频率：17
 
 问题：  
 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
@@ -60,10 +61,49 @@ var reverseList = function(head) {
 };
 ```
 
+### [2.最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
+频率：12  
+
+问题：   
+给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+
+子数组
+是数组中的一个连续部分。
+![image](../assets/20240810/zuidazishuhe.jpg)
+
+题解：  
+最大的子数组和，一定不包含两端小于0的片段   
+如果之前的片段和`currentSum`小于等于0，就丢弃掉，重新计算
+
+
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+    let currentSum = nums[0];
+    let maxSum = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        let current = nums[i]
+        if (currentSum <= 0) {
+            currentSum = current
+        } else {
+            currentSum = currentSum + current
+        }
+        maxSum = Math.max(maxSum, currentSum)
+    }
+    return maxSum;
+};
+```
+
 
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
 [github题库2](https://github.com/afatcoder/LeetcodeTop/blob/master/bytedance/frontend.md)  
 [牛客题库](https://www.nowcoder.com/exam/oj?page=1&tab=%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95&topicId=295)  
-[博客题库](https://2xiao.github.io/leetcode-js/leetcode/)  
+[博客题库](https://2xiao.github.io/leetcode-js/leetcode/) 
+
+[算法](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
 
