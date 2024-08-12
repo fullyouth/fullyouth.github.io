@@ -363,6 +363,45 @@ var twoSum = function(nums, target) {
 };
 ```
 
+### [9.二分查找](https://leetcode.cn/problems/binary-search/)
+频率：6  
+
+问题：   
+给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
+
+![image](../assets/20240810/erfenchazhao.jpg)
+
+
+题解：  
+应该严格按照二分查找怕的步骤来，不然会有很多边界情况需要判断  
+Middle =  Math.floor((left + right) / 2)  
+Start = middle + 1  
+End = middle - 1  
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+    let left = 0;
+    let right = nums.length;
+    let mid
+    while(left < right){
+        mid =  Math.floor((left + right) / 2)
+        if (target > nums[mid]) {
+            left = mid + 1
+        } else if(target < nums[mid]){
+            right = mid - 1
+        } else {
+            return mid
+        }
+    }
+    return target === nums[left] ? left : -1
+};
+```
+
 
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
