@@ -402,6 +402,118 @@ var search = function(nums, target) {
 };
 ```
 
+### [10.合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/description/)
+频率：5  
+
+问题：   
+将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+
+
+题解：  
+
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} list1
+ * @param {ListNode} list2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function(list1, list2) {
+    let tempHead = new ListNode(-1, null); // 已经排序好的链表的头
+    let tempTail = tempHead; // 已经排序号的链表的尾
+    let cur1 = list1
+    let cur2 = list2
+    while(cur1 && cur2) {
+        if (cur1.val <= cur2.val) {
+            tempTail.next = cur1
+            cur1 = cur1.next
+        } else {
+            tempTail.next = cur2
+            cur2 = cur2.next
+        }
+        tempTail = tempTail.next
+    }
+    if (cur1 && !cur2) {
+        tempTail.next = cur1
+    }
+    if (!cur1 && cur2) {
+        tempTail.next = cur2
+    }
+    return tempHead.next
+};
+```
+
+### [11.打家劫舍](https://leetcode.cn/problems/house-robber/description/)
+频率：5  
+
+问题：   
+你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+
+给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
+
+输入：[1,2,3,1]  
+输出：4  
+解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。
+     偷窃到的最高金额 = 1 + 3 = 4 。
+
+![image](../assets/20240810/dajiajieshe.jpg)
+
+题解：  
+
+递归
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function(nums) {
+    let cache = {}
+    // 前n间房的最大价值
+    function dp(n) {
+        if (cache[n] >= 0) {
+            return cache[n]
+        }
+        let ret
+        if (n === 0) {
+            ret = nums[0]
+        } else if (n === 1) {
+            ret = Math.max(nums[0], nums[1])
+        } else {
+            ret = Math.max(nums[n] + dp(n-2), dp(n-1))
+        }
+        cache[n] = ret
+        return ret
+    }
+    return dp(nums.length - 1)
+};
+```
+
+迭代
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function(nums) {
+    let len = nums.length
+    let dp = new Array(len + 2).fill(0) // 从i个开始，能获得的最大金额
+    for (let i = len - 1; i >= 0; i--) {
+        dp[i] = Math.max(
+            dp[i + 1],
+            nums[i] + dp[i + 2]
+        )
+    }
+    return dp[0]
+};
+```
+
 
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
