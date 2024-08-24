@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // var removeKdigits = function(num, k) {
+  //     if (num.length === 1) return '0'
+  //     let nums = num.toString().split('');
+  //     let stack = []
+  //     let index = 0
+  //     while(index < nums.length) {
+  //         let cur = nums[index]
+  //         let top = stack[stack.length - 1] || 0
+  //         if (top > cur) {
+  //             // 移除
+  //             // 但是如果一直递增 就没办法移除
+  //             stack.pop()
+  //             k--
+  //           } else {
+  //             stack.push(cur)
+  //             index ++;
+  //         }
+  //     }
+  //     stack.push(...nums.splice(index, nums.length - index))
+  //     if (k > 0) {
+  //       stack = stack.splice(0, stack.length - k)
+  //     }
+  //     return Number(stack.join('')) + '';
+  // };
+  var removeKdigits = function (num, k) {
+    if (num.length === 1) return '0'
+    let nums = num.toString().split('');
+    let stack = []
+    for(let i = 0 ; i < nums.length; i++) {
+      let current = nums[i]
+      // 构造单调栈
+      while (k > 0 && stack.length > 0 && current < (stack[stack.length - 1] || 0)) {
+        stack.pop()
+        k--
+      }
+      
+      stack.push(current)
+    }
+    for (; k > 0; --k) {
+      stack.pop();
+    }
+    return Number(stack.join('')) + '';
+  }
+  let a = removeKdigits('10200', 1)
+  console.log('aaaa', a)
+  console.log(removeKdigits('1234567890', 9))
+  console.log(removeKdigits('119', 1))
+
+</script>
+
+</html>

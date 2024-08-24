@@ -549,6 +549,94 @@ var hasPathSum = function (root, targetSum) {
 };
 ```
 
+### [13.全排列](https://leetcode.cn/problems/permutations/description/)
+频率：4
+
+问题：   
+给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
+
+
+![image](../assets/20240810/quanpailie.jpg)
+题解：  
+没什么技巧，多练习吧
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ 回溯算法
+ */
+var permute = function(nums) {
+    let ret = []
+    let selected = []
+    function back() {
+        if (selected.length === nums.length) {
+            ret.push([...selected])
+        } 
+        nums.forEach((item, index) => {
+            if (selected.includes(item)) {
+
+            } else {
+                selected.push(item)
+                back()
+                selected.pop()
+            }
+        })
+    }
+    back()
+    return ret 
+};
+```
+
+### [14.移掉 K 位数字](https://leetcode.cn/problems/remove-k-digits/description/)
+频率：4
+
+问题：   
+给你一个以字符串表示的非负整数 num 和一个整数 k ，移除这个数中的 k 位数字，使得剩下的数字最小。请你以字符串形式返回这个最小的数字。
+
+
+题解：  
+非常恶心的题，典型的（知道思路，不一定写的出来答案，边界情况太多了）  
+除非你的思路完全命中正确逻辑，否则需要一次次调试
+```js
+/**
+ * @param {string} num
+ * @param {number} k
+ * @return {string}
+ */
+var removeKdigits = function (num, k) {
+    if (num.length === 1) return '0'
+    let nums = num.toString().split('');
+    let stack = []
+    for(let i = 0 ; i < nums.length; i++) {
+      let current = nums[i]
+      // 构造单调栈
+      while (k > 0 && stack.length > 0 && current < (stack[stack.length - 1] || 0)) {
+        stack.pop()
+        k--
+      }
+      
+      stack.push(current)
+    }
+    for (; k > 0; --k) {
+      stack.pop();
+    }
+
+    let ans = "";
+    let isLeadingZero = true;
+    for (const digit of stack) {
+        if (isLeadingZero && digit === '0') {
+            continue;
+        }
+        isLeadingZero = false;
+        ans += digit;
+    }
+
+    return ans === "" ? "0" : ans;
+  }
+```
+
+
+
 
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
