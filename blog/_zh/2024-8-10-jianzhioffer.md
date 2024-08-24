@@ -514,6 +514,41 @@ var rob = function(nums) {
 };
 ```
 
+### [12.路径总和](https://leetcode.cn/problems/path-sum/description/)
+频率：5  
+
+问题：   
+给你二叉树的根节点 root 和一个表示目标和的整数 targetSum 。判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。如果存在，返回 true ；否则，返回 false 。
+
+
+![image](../assets/20240810/lujingzonghe.jpg)
+题解：  
+本质上就是遍历链表
+```js
+var hasPathSum = function (root, targetSum) {
+    let result = false
+    function walkTree(head, _targetSum) {
+        if (result) {
+            return
+        }
+        if (!head) {
+            return
+        }
+
+        if (!head.left && !head.right) {
+            if (head.val === _targetSum) {
+                result = true
+            }
+            return
+        }
+        walkTree(head.left, _targetSum - head.val)
+        walkTree(head.right, _targetSum - head.val)
+    }
+    walkTree(root, targetSum)
+    return result
+};
+```
+
 
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
