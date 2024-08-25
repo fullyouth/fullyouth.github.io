@@ -31,12 +31,13 @@ jobs:
     
     # 部署到 GitHub Pages
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: jenkey2011/vuepress-deploy@master
       # 环境变量
       env:
-        GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
+        ACCESS_TOKEN: ${{ secrets.ACTION_SECRET }}
+        BUILD_DIR: docs/.vuepress/dist
       with:
-        TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TOKEN: ${{ secrets.ACTION_SECRET }}
         GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
         BRANCH: zhq
         FOLDER: blog/.vuepress/dist
