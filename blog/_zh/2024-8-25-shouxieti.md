@@ -1,0 +1,78 @@
+---
+title: Javascript手写题
+date: 2024-8-25
+tags:
+  - 手写题小册
+summary: Javascript手写题
+---
+
+# 写在前面
+
+下面这是本册的封面图  
+寓意：向光阳光和自由  
+<img width="50%" style="border: 1px solid #86909c4a" src="../assets/20240810/shouxiexiaoce-book.jpg"/>
+
+
+# 手写题
+## 1. 防抖
+[jsFiddle ->](https://jsfiddle.net/olivio/w4xfcdv6/25/)
+```js
+function debounce(fn, delay, options) {
+  let timer = null;
+  let shouldInvoke = options.immediately // 是否立即执行
+  return function(...args) {
+    if (shouldInvoke) {
+      fn.call(this, ...args)
+      shouldInvoke = false
+    }
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      fn.call(this, ...args)
+      shouldInvoke = options.immediately
+    }, delay)
+  }
+}
+```
+## 2. 节流
+[jsFiddle](https://jsfiddle.net/olivio/c5jn691e/14/)
+```js
+// 节流函数
+function throttle(fn, delay) {
+  let timer = null
+  return function (...args) {
+    if (!timer) {
+      fn.call(this, ...args)
+      timer = setTimeout(() => {
+        timer = null
+      }, delay)
+    } 
+  }
+}
+```
+
+## 3. 数组去重
+## 4. 数组扁平化
+## 5. 深浅拷贝
+## 6. 事件总线（发布订阅模式）
+## 7. 图片懒加载
+## 8. 函数柯里化
+## 9. 偏函数
+## 10. JSONP
+## 11. AJAX
+## 12. 实现数组原型方法
+## 13. 实现函数原型方法
+## 14. 实现 new 关键字
+## 15. 实现 instanceof 关键字
+## 16. 实现 Object.create
+## 17. 实现 Object.assign
+## 18. 实现 JSON.stringify
+## 19. 实现 JSON.parse
+## 20. 实现 Promise
+## 21. 异步任务调度器
+
+## 参考
+- https://www.explainthis.io/zh-hans/swe/fe-whiteboard
+- https://juejin.cn/post/6946022649768181774#heading-45
+- https://juejin.cn/post/6968713283884974088?from=search-suggest#heading-19

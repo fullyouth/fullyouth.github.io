@@ -7,6 +7,10 @@ summary: 算法学习笔记
 ---
 
 ## 写在前面
+下面这是本册的封面图  
+
+<img width="50%" style="border: 1px solid #86909c4a" src="../assets/20240810/suanfaxiaoce-book.jpg"/>
+
 这是自己学习算法题的练习小册子
 [练习网站](https://codetop.cc/home)
 
