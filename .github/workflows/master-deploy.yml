@@ -37,6 +37,9 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACTION_SECRET }}
         BUILD_DIR: blog/.vuepress/dist
         CNAME: https://www.zhq.com
+        TARGET_REPO: fullyouth/fullyouth.github.io.git
+        BUILD_SCRIPT: yarn && yarn build
+        TARGET_BRANCH: zhq
       with:
         TOKEN: ${{ secrets.ACTION_SECRET }}
         GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
