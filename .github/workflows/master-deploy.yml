@@ -23,8 +23,8 @@ jobs:
     #    node-version: '14'
 
 
-    #- name: Install
-    #  run: yarn
+    - name: Install
+      run: yarn
 
     #- name: Build
     #  run: yarn build 
@@ -38,10 +38,5 @@ jobs:
         BUILD_DIR: blog/.vuepress/dist
         CNAME: https://www.zhq.com
         # TARGET_REPO: fullyouth/fullyouth.github.io.git
-        BUILD_SCRIPT: yarn && yarn build
+        BUILD_SCRIPT: yarn build
         TARGET_BRANCH: zhq
-      with:
-        TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: zhq
-        FOLDER: blog/.vuepress/dist
