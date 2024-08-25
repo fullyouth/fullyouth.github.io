@@ -4,7 +4,7 @@ name: Auto Deploy
 on: 
   push:
     branches:
-      - main
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
