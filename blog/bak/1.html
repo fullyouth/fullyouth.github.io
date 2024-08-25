@@ -35,30 +35,29 @@
   //     }
   //     return Number(stack.join('')) + '';
   // };
-  var removeKdigits = function (num, k) {
-    if (num.length === 1) return '0'
-    let nums = num.toString().split('');
-    let stack = []
-    for(let i = 0 ; i < nums.length; i++) {
-      let current = nums[i]
-      // 构造单调栈
-      while (k > 0 && stack.length > 0 && current < (stack[stack.length - 1] || 0)) {
-        stack.pop()
-        k--
-      }
-      
-      stack.push(current)
-    }
-    for (; k > 0; --k) {
-      stack.pop();
-    }
-    return Number(stack.join('')) + '';
-  }
-  let a = removeKdigits('10200', 1)
-  console.log('aaaa', a)
-  console.log(removeKdigits('1234567890', 9))
-  console.log(removeKdigits('119', 1))
+  var findMin = function(nums) {
+    let left = 0
+    let right = nums.length - 1
 
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2)
+        if (nums[right] < nums[mid]){
+            left = mid + 1
+        } else {
+            right = mid
+        }
+    }
+    let ret
+    if (typeof nums[left] === 'undefined') {
+        ret = nums[right]
+    } else if (typeof nums[right] === 'undefined') {
+        ret = nums[left]
+    } else {
+        ret = Math.min(nums[left], nums[right])
+    }
+    return ret
+};
+console.log(findMin([3,1,2]))
 </script>
 
 </html>

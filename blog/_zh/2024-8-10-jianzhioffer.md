@@ -635,6 +635,36 @@ var removeKdigits = function (num, k) {
   }
 ```
 
+### [15.寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/description/)
+频率：4
+
+问题：   
+题目有点长，看原题吧
+
+题解：  
+**二分法**  
+需要注意的点：
+- `mid = Math.floor((left + right) / 2)` 如果是小数，会向下取整
+- `left = mid + 1` `right = mid` 因为每次都是向下取整，所以left需要做+1，才不至于死循环，right不能-1
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function(nums) {
+    let left = 0
+    let right = nums.length - 1
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2)
+        if (nums[right] < nums[mid]){
+            left = mid + 1
+        } else {
+            right = mid
+        }
+    }
+    return nums[right]
+};
+```
 
 
 
