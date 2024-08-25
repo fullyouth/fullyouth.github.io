@@ -35,7 +35,8 @@ jobs:
       # 环境变量
       env:
         ACCESS_TOKEN: ${{ secrets.ACTION_SECRET }}
-        BUILD_DIR: docs/.vuepress/dist
+        BUILD_DIR: blog/.vuepress/dist
+        CNAME: https://www.zhq.com
       with:
         TOKEN: ${{ secrets.ACTION_SECRET }}
         GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
