@@ -1,4 +1,6 @@
-name: Build and Deploy
+# 工作流的名称，如果省略，则使用当前文件名
+name: Auto Deploy
+
 on: 
   push:
     branches:
@@ -7,16 +9,25 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
+    - name: Clone Code
       uses: actions/checkout@master
+      with:
+          # "最近更新时间"等 git 日志相关信息，需要拉取全部提交记录
+          fetch-depth: 0
 
-    - name: vuepress-Build
-      run: npm install && npm run build
+    - name: Install
+      # 如果没有命中缓存才执行 npm install
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: npm install 
+
+    - name: Build
+      run: npm run build 
+    
     # 部署到 GitHub Pages
-    - name: Vuepress-Deploy
+    - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_BRANCH: zhq
+      with:
+        TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: zhq
         FOLDER: blog/.vuepress/dist
         CNAME: https://www.zhq.com
