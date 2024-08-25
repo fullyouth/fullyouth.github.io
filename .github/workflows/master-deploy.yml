@@ -31,7 +31,7 @@ jobs:
     
     # 部署到 GitHub Pages
     - name: Deploy
-      uses: fullyouth/vuepress-deploy@master
+      uses: jenkey2011/vuepress-deploy@master
       # 环境变量
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
