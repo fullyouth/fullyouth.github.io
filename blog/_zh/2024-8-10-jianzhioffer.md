@@ -670,6 +670,54 @@ var findMin = function(nums) {
 };
 ```
 
+### [16.括号生成](https://leetcode.cn/problems/generate-parentheses/description/)
+频率：4
+
+问题：   
+数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+
+题解：  
+**回溯算法**  
+```js
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function(n) {
+    function check(arr) {
+        let stack = []
+        for (let i = 0; i < arr.length; i ++) {
+          let top = stack[stack.length - 1]
+          let cur = arr[i]
+          if (cur === ')' && top === '(') {
+            stack.pop()
+          } else {
+            stack.push(cur)
+          }
+        }
+        return stack.length === 0
+    }
+    let retArr = []
+    let current = []
+    // 标准的回溯算法
+    function back() {
+        if (current.length === n * 2) {
+            if (check(current)) {
+                retArr.push(current.join(''))
+            }
+            return
+        }
+        ['(', ')'].forEach((item) => {
+            current.push(item)
+            back()
+            current.pop()
+        })
+    }
+    back()
+    return retArr
+};
+```
+
 
 
 ## 题库
