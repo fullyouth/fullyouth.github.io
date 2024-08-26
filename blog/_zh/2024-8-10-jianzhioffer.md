@@ -718,6 +718,59 @@ var generateParenthesis = function(n) {
 };
 ```
 
+### [17.打乱数组](https://leetcode.cn/problems/shuffle-an-array/description/)
+频率：4
+
+问题：   
+实现 Solution class:
+
+- Solution(int[] nums) 使用整数数组 nums 初始化对象
+- int[] reset() 重设数组到它的初始状态并返回
+- int[] shuffle() 返回数组随机打乱后的结果
+
+题解：  
+**洗牌算法**  
+比较简单，每一个元素都随机交换一下位置  
+```js
+/**
+ * @param {number[]} nums
+ */
+var Solution = function(nums) {
+    this.nums = [...nums]
+    this.cache = [...nums]
+};
+
+/**
+ * @return {number[]}
+ */
+Solution.prototype.reset = function() {
+    return this.cache
+};
+
+/**
+ * @return {number[]}
+ */
+Solution.prototype.shuffle = function() {
+    for(let i = 0; i < this.nums.length; i++) {
+        let randomNum = createRandom(this.nums.length)
+        let temp = this.nums[i]
+        this.nums[i] = this.nums[randomNum]
+        this.nums[randomNum] = temp
+    }
+    function createRandom(n) {
+        return Math.floor(Math.random() * n)
+    }
+    return this.nums
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * var obj = new Solution(nums)
+ * var param_1 = obj.reset()
+ * var param_2 = obj.shuffle()
+ */
+```
+
 
 
 ## 题库

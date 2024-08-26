@@ -35,29 +35,41 @@
   //     }
   //     return Number(stack.join('')) + '';
   // };
-  var findMin = function(nums) {
-    let left = 0
-    let right = nums.length - 1
-
-    while (left < right) {
-        let mid = Math.floor((left + right) / 2)
-        if (nums[right] < nums[mid]){
-            left = mid + 1
-        } else {
-            right = mid
+  var generateParenthesis = function(n) {
+    function check(arr) {
+        let stack = []
+        for (let i = 0; i < arr.length; i ++) {
+          let top = stack[stack.length - 1]
+          let cur = arr[i]
+          if (cur === ')' && top === '(') {
+            stack.pop()
+          } else {
+            stack.push(cur)
+          }
         }
+        return stack.length === 0
     }
-    let ret
-    if (typeof nums[left] === 'undefined') {
-        ret = nums[right]
-    } else if (typeof nums[right] === 'undefined') {
-        ret = nums[left]
-    } else {
-        ret = Math.min(nums[left], nums[right])
+    let retArr = []
+    let current = []
+    function back() {
+        if (current.length === n * 2) {
+            if (check(current)) {
+                retArr.push(current.join(''))
+            }
+            return
+        }
+        current.push('(')
+        back()
+        current.pop()
+
+        current.push(')')
+        back()
+        current.pop()
     }
-    return ret
+    back()
+    return retArr
 };
-console.log(findMin([3,1,2]))
+console.log(generateParenthesis(3))
 </script>
 
 </html>

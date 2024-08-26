@@ -36,7 +36,6 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BUILD_DIR: blog/.vuepress/dist
-        # CNAME: https://www.zhq.com
-        # TARGET_REPO: fullyouth/fullyouth.github.io.git
+        CNAME: www.haoqi123.com
         BUILD_SCRIPT: yarn build
         TARGET_BRANCH: zhq
