@@ -770,8 +770,79 @@ Solution.prototype.shuffle = function() {
  * var param_2 = obj.shuffle()
  */
 ```
+### [18.最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/description/)
+频率：4
 
+问题：   
+给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
 
+题解：  
+**动态规划**  
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var lengthOfLIS = function(nums) {
+    let ret = 1;
+    let dp = Array.from({length: nums.length}).fill(1)
+    for (let m = 0; m < nums.length; m ++) {
+        let cur = nums[m]
+        for (let n = 0; n < m; n ++) {
+            if (cur > nums[n]) {
+                dp[m] = Math.max(dp[n] + 1, dp[m])
+                ret = Math.max(ret, dp[m])
+            }
+        }
+    }
+    return ret;
+};
+```
+### [19.数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/description/)
+频率：4
+
+问题：   
+给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+
+题解：  
+**快排**  
+快排的写法有很多，这个是我见过最清晰的快排写法 [阮一峰老师的博客](https://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html)  
+1、确定基准值  
+2、比基准小的放在左边，比基准大的放在右边（从数组中删掉基准值）    
+3、递归左边和右边  
+
+缺点：递归就会爆栈
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findKthLargest = function(nums, k) {
+    function quick(arr) {
+      if (arr.length <= 1) return arr
+      let left = []
+      let right = []
+      let jizhunIndex = Math.floor(arr.length / 2)
+      let jizhun = arr.splice(jizhunIndex, 1)[0]; // 基准值 从数组中删掉当前的值
+      for (let i = 0 ; i < arr.length; i ++) {
+        if (arr[i] > jizhun) {
+          left.push(arr[i])
+        } else {
+          right.push(arr[i])
+        }
+      }
+      return [...quick(left), jizhun, ...quick(right)]
+    }
+    
+    return quick(nums)[k - 1]
+};
+```
+**堆排序**  
+```js
+// TODO
+```
 
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
