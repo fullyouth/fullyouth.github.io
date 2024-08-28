@@ -844,6 +844,145 @@ var findKthLargest = function(nums, k) {
 // TODO
 ```
 
+### [20.最大子数组和](https://leetcode.cn/problems/maximum-subarray/description/)
+频率：3
+
+问题：   
+给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+
+题解：  
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+    let maxSum = nums[0]
+    let tempSum = nums[0]
+    for (let i = 1; i < nums.length; i ++) {
+        let current = nums[i]
+        if (current > current + tempSum) {
+            tempSum = current
+        } else {
+            tempSum = tempSum + current
+        }
+        maxSum = Math.max(maxSum, tempSum)
+    }
+    return maxSum
+};
+```
+
+### [21.不同路径](https://leetcode.cn/problems/unique-paths/description/)
+频率：3
+
+问题：   
+一个机器人位于一个 m x n 网格的左上角，机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角  
+问总共有多少条不同的路径？
+
+![image](https://pic.leetcode.cn/1697422740-adxmsI-image.png)
+
+题解：  
+**回溯算法**
+复杂度太高了，超时
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */
+var uniquePaths = function(m, n) {
+    let ret = 0
+    let right = 0;
+    let down = 0;
+    function back() {
+        if (right === m - 1 || down === n - 1) {
+            ret ++;
+            return
+        }
+        down++;
+        back()
+        down--;
+
+        right++;
+        back()
+        right--;
+    }
+    back()
+    return ret;
+};
+```
+**动态规划**
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ dp[i,j] = dp[i - 1,j] + dp[i, j - 1]
+ */
+var uniquePaths = function(m, n) {
+    let cache = [];
+    for (let i = 0 ; i < m; i++) {
+        cache[i] = []
+        for (let j = 0 ; j < n; j ++) {
+            if (i === 0 && j === 0) {
+                cache[0][0] = 1
+                continue
+            }
+            let cur = (cache?.[i]?.[j - 1] || 0) + (cache?.[i - 1]?.[j] || 0)
+            cache[i][j] = cur
+        }
+    }
+    return cache[m - 1][n - 1]
+};
+```
+
+### [22.删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/)
+频率：3
+
+问题：   
+给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+
+![image](https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg)
+
+题解：  
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+    let arr = []
+    // 遍历链表
+    let temp = head;
+    while (temp) {
+        arr.push(temp)
+        temp = temp.next
+    }
+    let item = arr[arr.length - n]
+    let prev = arr[arr.length - n - 1]
+    let next = arr[arr.length - n + 1]
+    if (arr.length === n) {
+        return head.next
+    }
+    if (!next) {
+        prev.next = null
+        return head
+    }
+    prev.next = next
+    return head
+};
+```
+
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
 [github题库2](https://github.com/afatcoder/LeetcodeTop/blob/master/bytedance/frontend.md)  
