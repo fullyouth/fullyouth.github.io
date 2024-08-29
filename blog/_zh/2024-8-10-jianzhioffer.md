@@ -983,6 +983,47 @@ var removeNthFromEnd = function(head, n) {
 };
 ```
 
+### [23.排序数组](https://leetcode.cn/problems/sort-an-array/)
+频率：3
+
+问题：   
+给你一个整数数组 nums，请你将该数组升序排列。
+
+题解：  
+使用 快排、堆排序、归并排序 
+
+快排
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortArray = function(nums) {
+    function quickSort(arr) {
+        // 结束条件一定要有
+        if (arr.length <= 1) {
+            return arr
+        }
+        let start = 0;
+        let end = arr.length - 1;
+        let jizhunIndex = Math.floor((start + end) / 2)
+        let jizhunValue = arr.splice(jizhunIndex, 1)[0]
+        let left = []
+        let right = []
+        for (let i = 0; i < arr.length; i++) {
+            let current = arr[i]
+            if (current > jizhunValue) {
+                right.push(current)
+            } else {
+                left.push(current)
+            }
+        }
+        return [...quickSort(left), jizhunValue, ...quickSort(right)]
+    }
+    return quickSort(nums)
+};
+```
+
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
 [github题库2](https://github.com/afatcoder/LeetcodeTop/blob/master/bytedance/frontend.md)  
