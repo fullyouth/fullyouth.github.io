@@ -1,7 +1,7 @@
 ---
-title: CSS学习笔记
+title: CSS秘籍
 date: 2024-8-25
 tags:
-  - css
-summary: CSS学习笔记
+  - CSS秘籍
+summary: CSS秘籍
 ---

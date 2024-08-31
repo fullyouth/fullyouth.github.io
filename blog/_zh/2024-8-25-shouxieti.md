@@ -53,7 +53,50 @@ function throttle(fn, delay) {
 ```
 
 ## 3. 数组去重
+```js
+function uniqueArr(arr) {
+  return [...new Set(arr)];
+}
+```
 ## 4. 数组扁平化
+es6
+```js
+// 根据指定深度递归地将所有子数组元素拼接到新的数组中
+// n默认1
+function flat(arr, n) {
+  return arr.flat(n)
+}
+```
+```js
+// 一层
+function flat(arr) {
+    return [].concat(...arr);
+}
+// 全部扁平化
+function flat(arr) {
+    while(arr.some(item => Array.isArray(item))) {
+        arr = [].concat(...arr);
+    }
+    return arr;
+}
+```
+```js
+// 递归法
+function flat(arr, deep) {
+  if (deep === 0) {
+    return arr
+  }
+  let ret = []
+  for (let i = 0 ; i < arr.length ; i ++){
+    if (Array.isArray(arr[i])) {
+      ret.push(...flat(arr[i], deep - 1))
+    } else {
+      ret.push(arr[i])
+    }
+  }
+  return ret
+}
+```
 ## 5. 深浅拷贝
 ## 6. 事件总线（发布订阅模式）
 ## 7. 图片懒加载

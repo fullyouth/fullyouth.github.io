@@ -48,10 +48,10 @@ module.exports = (options, context, api) => {
           text: "博客",
           link: "/zh/"
         },
-        // {
-        //   text: "Blog",
-        //   link: "/en/"
-        // },
+        {
+          text: "算法",
+          link: "/tag/算法训练营/"
+        },
         {
           text: "Github",
           link: "https://github.com/fullyouth"

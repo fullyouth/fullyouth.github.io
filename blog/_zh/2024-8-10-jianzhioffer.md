@@ -1024,6 +1024,83 @@ var sortArray = function(nums) {
 };
 ```
 
+### [24.复原IP地址](https://leetcode.cn/problems/restore-ip-addresses/description/)
+频率：3
+
+问题：   
+有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 '.' 分隔。
+
+题解：  
+使用 快排、堆排序、归并排序 
+
+快排
+```js
+/**
+ * @param {string} s
+ * @return {string[]}
+ */
+var restoreIpAddresses = function (s) {
+    let count = 3
+    let arr = []
+    let index = 0
+    let currentArr = []
+    let currentStr = ''
+
+    function back() {
+      if (currentArr[0] === '.') {
+        return
+      }
+      if (currentArr[currentArr.length - 2] === '.' && currentStr === '.') {
+        return
+      }
+      // 此时的index加1 了
+      if (index === s.length) {
+        if (count === 0) {
+          arr.push([...currentArr])
+        }
+        return
+      }
+      if (count === 0) {
+        if (index < s.length) {
+          arr.push([...currentArr, ...s.split('').splice(index)])
+        } 
+        return
+      }
+
+      currentArr.push(s[index])
+      currentStr = s[index]
+      index++;
+      back()
+      currentArr.pop()
+      index--
+
+      currentArr.push('.')
+      currentStr = '.'
+      count--
+      back()
+      currentArr.pop()
+      count++
+      currentStr = ''
+    }
+    back()
+
+    arr = arr.map(item => {
+      let list = item.join('').split('.')
+      for (let i = 0; i < list.length; i++) {
+        if (list[i] > 255) {
+          return false
+        }
+        if (list[i].startsWith('0') && list[i] !== '0') {
+          return false
+        }
+        
+      }
+      return list.join('.')
+    }).filter(Boolean)
+    return arr
+  };
+```
+
 ## 题库
 [github题库1](https://github.com/afatcoder/LeetcodeTop)  
 [github题库2](https://github.com/afatcoder/LeetcodeTop/blob/master/bytedance/frontend.md)  

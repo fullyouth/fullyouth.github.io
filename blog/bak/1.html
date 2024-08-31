@@ -40,29 +40,59 @@
    * @param {number} k
    * @return {number}
    */
-/**
- * @param {number} m
- * @param {number} n
- * @return {number}
- dp[i,j] = dp[i - 1,j] + dp[i, j - 1]
- */
- var uniquePaths = function(m, n) {
-    let cache = [];
-    for (let i = 0 ; i < m; i++) {
-        cache[i] = []
-        for (let j = 0 ; j < n; j ++) {
-          if (i === 0 && j === 0) {
-            cache[0][0] = 1
-            continue
-          }
-            let cur = (cache?.[i]?.[j - 1] || 0) + (cache?.[i - 1]?.[j] || 0)
-            cache[i][j] = cur
-        }
-    }
-    return cache[m - 1][n - 1]
-};
-  console.log(uniquePaths(3,2))
+  /**
+   * @param {number} m
+   * @param {number} n
+   * @return {number}
+   dp[i,j] = dp[i - 1,j] + dp[i, j - 1]
+   */
+   var threeSum = function(nums) {
+    let ret = []
+    for (let i = 0 ; i < nums.length; i ++) {
+        let cur = nums[i]
+        let target = cur === 0 ? 0 : cur * -1
+        let _nums = [...nums]
+        _nums.splice(i, 1)
 
+        let curResult = twoSum(_nums, target)
+        curResult = curResult.map(item => [cur, ...item])
+        ret.push(...curResult)
+    }
+    function twoSum(nums, target) {
+        let ans = []
+        let map = {}
+        // [-1,0,1,2,-1,-4]
+        for (let i = 0 ; i < nums.length; i++) {
+            if (map[nums[i]] > 0) {
+                map[nums[i]] = ++map[nums[i]] 
+            } else {
+                map[nums[i]] = 1
+            }
+        }
+        for (let i = 0 ; i < nums.length; i++) {
+            let cur = nums[i]
+            if (map[cur] > 0) {
+              map[cur] --
+            } else{
+              continue;
+            }
+            let t = target - cur
+            if (map[t] > 0) {
+                map[t] --;
+                ans.push([cur, t])
+            }
+        }
+        return ans
+    }
+    let retStr = ret.map(item => {
+      return item.sort((a,b) => a - b).join(',')
+    })
+    retStr = Array.from(new Set(retStr))
+    ret = retStr.map(item => item.split(','))
+    return ret
+};
+
+  console.log('threeSum', threeSum([0,0,0]))
 </script>
 
 </html>
