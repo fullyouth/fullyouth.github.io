@@ -12,7 +12,7 @@ summary: Javascript手写题
 
 下面这是本册的封面图  
 寓意：向往**阳光**和**自由**  
-<img width="50%" style="border: 1px solid #86909c4a" src="https://www.haoqi123.com/assets/img/shouxiexiaoce-book.f4fa9a7a.jpg"/>
+<img width="50%" style="border: 1px solid #86909c4a" src="../assets/20240810/shouxiexiaoce-book.jpg"/>
 
 **100%单测通过**,每一个方法都使用jest单元测试进行了验证  
 
