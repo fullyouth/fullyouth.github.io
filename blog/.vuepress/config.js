@@ -19,7 +19,10 @@ module.exports = (options, context, api) => {
           dirname: "_zh",
           title: "haoqi",
           path: "/zh/",
-          itemPermalink: "/zh/:year/:month/:day/:slug"
+          itemPermalink: "/zh/:year/:month/:day/:slug",
+          pagination: {
+            lengthPerPage: 20,
+          },
         },
       ],
       dateFormat: `YYYY-MM-DD 周d`,
