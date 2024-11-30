@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "vue-switches": "^2.0.1",
-    "vue-template-compiler": "^2.7.16"
+    "vue-template-compiler": "2.7.16"
   }
 }
