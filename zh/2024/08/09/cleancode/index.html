@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>如何写好注释 | haoqi</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="Clean Code">
+    
+    <link rel="preload" href="/assets/css/0.styles.e85a8e2e.css" as="style"><link rel="preload" href="/assets/js/app.0e3ce351.js" as="script"><link rel="preload" href="/assets/js/4.ca613f77.js" as="script"><link rel="preload" href="/assets/js/1.fc81473f.js" as="script"><link rel="preload" href="/assets/js/36.1374c446.js" as="script"><link rel="prefetch" href="/assets/js/11.09c979ff.js"><link rel="prefetch" href="/assets/js/12.0a8f29fa.js"><link rel="prefetch" href="/assets/js/13.2f87793f.js"><link rel="prefetch" href="/assets/js/14.473b884d.js"><link rel="prefetch" href="/assets/js/15.9b42d14e.js"><link rel="prefetch" href="/assets/js/16.0877f871.js"><link rel="prefetch" href="/assets/js/17.83daa98d.js"><link rel="prefetch" href="/assets/js/18.a9466d80.js"><link rel="prefetch" href="/assets/js/19.560ed21f.js"><link rel="prefetch" href="/assets/js/2.ea3f2656.js"><link rel="prefetch" href="/assets/js/20.99ecb93b.js"><link rel="prefetch" href="/assets/js/21.781ce91d.js"><link rel="prefetch" href="/assets/js/22.ecb9ed43.js"><link rel="prefetch" href="/assets/js/23.b32c6bde.js"><link rel="prefetch" href="/assets/js/24.9b027557.js"><link rel="prefetch" href="/assets/js/25.ce02ed40.js"><link rel="prefetch" href="/assets/js/26.908aaf54.js"><link rel="prefetch" href="/assets/js/27.97530cf1.js"><link rel="prefetch" href="/assets/js/28.ae4cc62d.js"><link rel="prefetch" href="/assets/js/29.b5e6a05c.js"><link rel="prefetch" href="/assets/js/3.28814dad.js"><link rel="prefetch" href="/assets/js/30.39242c96.js"><link rel="prefetch" href="/assets/js/31.861e3966.js"><link rel="prefetch" href="/assets/js/32.2cf33c25.js"><link rel="prefetch" href="/assets/js/33.d5bc72ea.js"><link rel="prefetch" href="/assets/js/34.cdd1c311.js"><link rel="prefetch" href="/assets/js/35.408c8db2.js"><link rel="prefetch" href="/assets/js/37.b16b3afd.js"><link rel="prefetch" href="/assets/js/38.804b3b4b.js"><link rel="prefetch" href="/assets/js/39.125918f7.js"><link rel="prefetch" href="/assets/js/40.f28694ea.js"><link rel="prefetch" href="/assets/js/41.3fb732e7.js"><link rel="prefetch" href="/assets/js/42.890209e3.js"><link rel="prefetch" href="/assets/js/43.b09fc2b0.js"><link rel="prefetch" href="/assets/js/44.8ea0e574.js"><link rel="prefetch" href="/assets/js/45.09865c70.js"><link rel="prefetch" href="/assets/js/46.cd0a8b48.js"><link rel="prefetch" href="/assets/js/47.e325e844.js"><link rel="prefetch" href="/assets/js/48.286a06d0.js"><link rel="prefetch" href="/assets/js/49.7d579b49.js"><link rel="prefetch" href="/assets/js/5.1c0e5281.js"><link rel="prefetch" href="/assets/js/6.0747b09a.js"><link rel="prefetch" href="/assets/js/7.c862f1b4.js"><link rel="prefetch" href="/assets/js/8.e482b566.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.7979e300.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e85a8e2e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/" class="nav-link home-link">haoqi </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/zh/" class="nav-link router-link-active">博客</a></li><li class="nav-item"><a href="/tag/算法训练营/" class="nav-link">算法</a></li><li class="nav-item"><a href="https://github.com/fullyouth" target="_blank" rel="noopener noreferrer" class="nav-link external">Github</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">haoqi </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/zh/" class="nav-link router-link-active">博客</a></li><li class="mobile-nav-item"><a href="/tag/算法训练营/" class="nav-link">算法</a></li><li class="mobile-nav-item"><a href="https://github.com/fullyouth" target="_blank" rel="noopener noreferrer" class="nav-link external">Github</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        如何写好注释
+      </h1> <div class="post-meta"><!----> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2024-8-9">
+      2024-08-09 周5
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/tag/代码整洁之道" data-v-42ccfcd5><span data-v-42ccfcd5>代码整洁之道</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h2 id="写在前面"><a href="#写在前面" class="header-anchor">#</a> 写在前面</h2> <p>程序员都不喜欢写注释，但是都希望别人的代码写注释!</p> <p>这句话听起来是一段梗，不过，代码注释的确需要我们重视，或许在某个夜晚，你正在加班紧急修改线上BUG，一行及时有用的注释让你如沐春风，直呼痛快!</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <blockquote><p>尽量少写注释，让自己的代码有足够的表达力，恰当的注释是应该只是一种弥补，弥补我们代码无法快速表达意图的情况</p></blockquote> <p>但是， But，并不是不写注释的理由</p> <blockquote><p>对于晦涩难懂的代码逻辑，特殊情况的业务逻辑，等，应当简洁明了，而非拖泥带水的给出解释注释。</p></blockquote> <h2 id="摘抄"><a href="#摘抄" class="header-anchor">#</a> 摘抄</h2> <ul><li>带有少量注释的整洁而有表达力的代码，比带有大量零碎注释的复杂代码好的多</li> <li>别给糟糕的代码加注释--重新写吧！</li> <li>什么也比不上放置良好的注释来的有用</li> <li>什么也比不上乱七八槽的注释更有本事搞乱一个模块</li> <li>什么也不会比陈旧，提供错误信息的注释更有破坏性</li> <li>注释并不像辛德勒的名单一样“纯然的好”</li></ul> <h2 id="一、怎么样写好注释"><a href="#一、怎么样写好注释" class="header-anchor">#</a> 一、怎么样写好注释</h2> <h3 id="_1-1-提供信息的注释"><a href="#_1-1-提供信息的注释" class="header-anchor">#</a> 1.1 提供信息的注释</h3> <p>Bad</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 返回一个商品的实例</span>
+<span class="token keyword">function</span> <span class="token function">responderInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>这时就可以去掉这一段的注释<br> <strong>为函数取一个好的有表达力的名字</strong><br>
+Good</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">responderGoodsInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>这个注释就非常有必要</p> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token comment">// 匹配邮箱的正则表达式</span>
+  <span class="token keyword">let</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[\w]+(\.[\w]+)*@[\w]+(\.[\w])+</span><span class="token regex-delimiter">/</span></span>
+</code></pre></div><p>理解起来有点苦难的地方，可以加一些阐述</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 假设是第三方库我们无法修改</span>
+<span class="token keyword">function</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">&gt;</span> b<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">===</span> b<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">&lt;</span> b<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token number">0</span>   <span class="token comment">// a !== b</span>
+<span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span>  <span class="token comment">// a &lt; b </span>
+<span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span>  <span class="token comment">// a &gt;= b </span>
+<span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">1</span>  <span class="token comment">// a &gt; b </span>
+<span class="token operator">...</span>
+</code></pre></div><h3 id="_1-2-对意图的解释"><a href="#_1-2-对意图的解释" class="header-anchor">#</a> 1.2 对意图的解释</h3> <blockquote><p>带有少量注释的整洁而有表达力的代码，比带有大量零碎注释的复杂代码好的多</p></blockquote> <p>可以使用多行注释，解释清楚这一部分逻辑处理的原因<br>
+我自己比较喜欢这样的注释，对于实在不好理解的逻辑，在函数上方把这个函数做的事情描述清楚<br>
+Good</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">componentWillMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> _params <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span>params
+    <span class="token keyword">this</span><span class="token punctuation">.</span>params <span class="token operator">=</span> <span class="token function">resolveParams</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/*
+* 用于url在某些情况下会被转义
+* 所以把路由的每一个参数都经过一遍转义字符的处理 防止异常情况
+*/</span>
+<span class="token keyword">function</span> <span class="token function">resolveParams</span><span class="token punctuation">(</span><span class="token parameter">params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  
+    params <span class="token operator">=</span> params <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> _key <span class="token keyword">in</span> _params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> key <span class="token operator">=</span> _key<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">amp;</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+      params<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> _params<span class="token punctuation">[</span>_key<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> params
+<span class="token punctuation">}</span>
+</code></pre></div><p>Bad<br>
+这样的注释就符合了不好注释：大量零碎注释的复杂代码</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">resolveParams</span><span class="token punctuation">(</span><span class="token parameter">params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    params <span class="token operator">=</span> params <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token comment">// 遍历路由参数</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> _key <span class="token keyword">in</span> _params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 把转义字符替换为空字符串</span>
+      <span class="token keyword">let</span> key <span class="token operator">=</span> _key<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">amp;</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+      params<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> _params<span class="token punctuation">[</span>_key<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> params
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_1-3-放大"><a href="#_1-3-放大" class="header-anchor">#</a> 1.3 放大</h3> <p>用来放大某种看似不合理的地方，但是又很重要的地方</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/*
+  * 这一步看似无厘头，但是很重要，请不要删除  
+  */</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_1-4-todo注释"><a href="#_1-4-todo注释" class="header-anchor">#</a> 1.4 TODO注释</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// TODO 后续需要优化，改为xxx的实现方式</span>
+<span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">do</span> something
+<span class="token punctuation">}</span> 
+</code></pre></div><h2 id="二、坏注释"><a href="#二、坏注释" class="header-anchor">#</a> 二、坏注释</h2> <h3 id="_2-1-零碎的注释"><a href="#_2-1-零碎的注释" class="header-anchor">#</a> 2.1 零碎的注释</h3> <p>应该在函数头部把函数意图描述清楚，别人懂了意图之后可以很快速的看懂代码<br>
+你要相信，看你代码的人肯定也是高手</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">resolveParams</span><span class="token punctuation">(</span><span class="token parameter">params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    params <span class="token operator">=</span> params <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token comment">// 遍历路由参数</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> _key <span class="token keyword">in</span> _params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 把转义字符替换为空字符串</span>
+      <span class="token keyword">let</span> key <span class="token operator">=</span> _key<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">amp;</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+      params<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> _params<span class="token punctuation">[</span>_key<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> params
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-2-多余的注释"><a href="#_2-2-多余的注释" class="header-anchor">#</a> 2.2 多余的注释</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Goods</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> prize</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 商品名</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+    <span class="token comment">// 商品价格</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>prize <span class="token operator">=</span> prize
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-3-位置标记"><a href="#_2-3-位置标记" class="header-anchor">#</a> 2.3 位置标记</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">// start=================</span>
+  <span class="token keyword">do</span> something
+  <span class="token comment">// end=================</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-4-日志记录"><a href="#_2-4-日志记录" class="header-anchor">#</a> 2.4 日志记录</h3> <p>完全可以用git commit记录好</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">/**
+   * 2021.4.3 修改了xxx的逻辑
+   * 2022.6.3 增加了xxx的逻辑
+  */</span>
+  <span class="token keyword">do</span> something
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-5-注释掉的代码"><a href="#_2-5-注释掉的代码" class="header-anchor">#</a> 2.5 注释掉的代码</h3> <p>删除掉注释的代码，commit写好，在git中都可以找到历史记录</p> <h2 id="同系列文章"><a href="#同系列文章" class="header-anchor">#</a> 同系列文章</h2> <p><a href="/tag/代码整洁之道/">同系列文章</a></p></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#写在前面" title="写在前面">写在前面</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#总结" title="总结">总结</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#摘抄" title="摘抄">摘抄</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#一、怎么样写好注释" title="一、怎么样写好注释">一、怎么样写好注释</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-1-提供信息的注释" title="1.1 提供信息的注释">1.1 提供信息的注释</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-2-对意图的解释" title="1.2 对意图的解释">1.2 对意图的解释</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-3-放大" title="1.3 放大">1.3 放大</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-4-todo注释" title="1.4 TODO注释">1.4 TODO注释</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#二、坏注释" title="二、坏注释">二、坏注释</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-零碎的注释" title="2.1 零碎的注释">2.1 零碎的注释</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-2-多余的注释" title="2.2 多余的注释">2.2 多余的注释</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-3-位置标记" title="2.3 位置标记">2.3 位置标记</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-4-日志记录" title="2.4 日志记录">2.4 日志记录</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-5-注释掉的代码" title="2.5 注释掉的代码">2.5 注释掉的代码</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#同系列文章" title="同系列文章">同系列文章</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/fullyouth" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8></li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0e3ce351.js" defer></script><script src="/assets/js/4.ca613f77.js" defer></script><script src="/assets/js/1.fc81473f.js" defer></script><script src="/assets/js/36.1374c446.js" defer></script>
+  </body>
+</html>
