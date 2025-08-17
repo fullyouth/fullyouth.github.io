@@ -1,41 +1,74 @@
-# 工作流的名称，如果省略，则使用当前文件名
 name: Auto Deploy
 
 on: 
   push:
-    branches:
-      - master
+    branches: [master]
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Clone Code
-      uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@v4
       with:
-          # "最近更新时间"等 git 日志相关信息，需要拉取全部提交记录
-          fetch-depth: 0
+        fetch-depth: 0
 
-    # 安装 Node 环境
-    #- name: Setup Node.js
-    #  uses: actions/setup-node@v3
-    #  with:
-        # 选择要使用的 node 版本
-    #    node-version: '14'
-
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
 
     - name: Install
       run: yarn
 
-    #- name: Build
-    #  run: yarn build 
-    
-    # 部署到 GitHub Pages
+    - name: Build
+      run: yarn build
+
     - name: Deploy
-      uses: jenkey2011/vuepress-deploy@master
-      # 环境变量
-      env:
-        ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BUILD_DIR: blog/.vuepress/dist
-        CNAME: www.haoqi123.com
-        BUILD_SCRIPT: yarn build
-        TARGET_BRANCH: zhq
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: blog/.vuepress/dist
+        cname: www.haoqi123.com
+
+# # 工作流的名称，如果省略，则使用当前文件名
+# name: Auto Deploy
+
+# on: 
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Clone Code
+#       uses: actions/checkout@master
+#       with:
+#           # "最近更新时间"等 git 日志相关信息，需要拉取全部提交记录
+#           fetch-depth: 0
+
+#     # 安装 Node 环境
+#     #- name: Setup Node.js
+#     #  uses: actions/setup-node@v3
+#     #  with:
+#         # 选择要使用的 node 版本
+#     #    node-version: '14'
+
+
+#     - name: Install
+#       run: yarn
+
+#     #- name: Build
+#     #  run: yarn build 
+    
+#     # 部署到 GitHub Pages
+#     - name: Deploy
+#       uses: jenkey2011/vuepress-deploy@master
+#       # 环境变量
+#       env:
+#         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         BUILD_DIR: blog/.vuepress/dist
+#         CNAME: www.haoqi123.com
+#         BUILD_SCRIPT: yarn build
+#         TARGET_BRANCH: zhq
