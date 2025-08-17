@@ -30,6 +30,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: blog/.vuepress/dist
         cname: www.haoqi123.com
+        publish_branch: zhq  添加发布分支配置
 
 # # 工作流的名称，如果省略，则使用当前文件名
 # name: Auto Deploy
